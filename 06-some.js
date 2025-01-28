@@ -47,9 +47,14 @@ console.log(respuesta)
 const respuesta2 = orders.some(item => item.delivered)
 console.log(respuesta2)
 
-const respuesta3 = dates.some()
+// const respuesta3 = dates.some()
 
-const areIntervalsOverlapping = require('date-fns/areIntervalsOverlapping');
+const newAppointment = {
+  startDate: new Date(2021, 1, 1, 10),
+  endDate: new Date(2021, 1, 1, 13),
+}
+
+const { areIntervalsOverlapping } = require("date-fns");
 
 const isOverlap = (newDate) => {
   return dates.some(date => areIntervalsOverlapping(
@@ -57,3 +62,5 @@ const isOverlap = (newDate) => {
     { start: newDate.startDate, end: newDate.endDate },
   )
 )}
+
+console.log(isOverlap(newAppointment))
